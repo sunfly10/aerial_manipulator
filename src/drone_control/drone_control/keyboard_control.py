@@ -1,4 +1,4 @@
-#키보드 키를 이용해서 제어 시도(실패)
+#키보드 키를 이용해서 제어 시도
 import rclpy
 from rclpy.node import Node
 from px4_msgs.msg import OffboardControlMode, TrajectorySetpoint, VehicleCommand, VehicleLocalPosition
