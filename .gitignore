@@ -216,3 +216,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- ROS 2 관련 (필수) ---
+build/
+install/
+log/
+
+# --- Python 관련 ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+# --- VS Code / IDE 설정 ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- 운영체제 잡파일 ---
+.DS_Store
+Thumbs.db
