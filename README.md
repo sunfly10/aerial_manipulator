@@ -89,7 +89,7 @@
 
 `bash`
 
-`ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=config/bridge.yaml # YAML 파일을 사용하여 카메라 및 로봇팔 토픽을 일괄 매핑합니다(yaml 파일이 있는 곳에서 실행).`
+`ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=bridge.yaml # YAML 파일을 사용하여 카메라 및 로봇팔 토픽을 일괄 매핑합니다(yaml 파일이 있는 곳에서 실행).`
 
 * Terminal 4: 메인 자율 제어 노드 실행
 
