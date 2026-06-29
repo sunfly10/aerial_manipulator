@@ -59,27 +59,32 @@
 성공적인 실행을 위해 모든 터미널 창에서 공통적으로 아래의 환경 변수 및 소스 파일 적용이 선행되어야 합니다.
 
 * 모든 터미널 공통 실행
-bash
+
+`bash
 source /opt/ros/jazzy/setup.bash
 source ~/drone_ws/install/setup.bash
 export GZ_IP=127.0.0.1
-export GZ_PARTITION=default
+export GZ_PARTITION=default`
 
 * Terminal 1: 통신 에이전트 실행
-bash
+
+`bash
 cd ~/Micro-XRCE-DDS-Agent/build # Micro-XRCE-DDS-Agent 설치 폴더로 이동 후 실행
-./MicroXRCEAgent udp4 -p 8888
+./MicroXRCEAgent udp4 -p 8888`
 
 * Terminal 2: PX4 SITL 및 시뮬레이션 환경 실행
-bash
+
+`bash
 cd ~/PX4-Autopilot
-make px4_sitl gz_x500_depth
+make px4_sitl gz_x500_depth`
 
 * Terminal 3: ROS 2 - Gazebo 브릿지 실행
-bash
-ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=config/bridge.yaml # YAML 파일을 사용하여 카메라 및 로봇팔 토픽을 일괄 매핑합니다(yaml 파일이 있는 곳에서 실행).
+
+`bash
+ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=config/bridge.yaml # YAML 파일을 사용하여 카메라 및 로봇팔 토픽을 일괄 매핑합니다(yaml 파일이 있는 곳에서 실행).`
 
 * Terminal 4: 메인 자율 제어 노드 실행
+
 autonomous_control.py 실행
 
 ---
