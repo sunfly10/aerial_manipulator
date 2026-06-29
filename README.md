@@ -10,7 +10,7 @@
 
 ## 1. 프로젝트 개요
 
-본 프로젝트는 산업용 물류 창고 환경을 모사한 Gazebo 시뮬레이션 내에서, 로봇 팔(Manipulator)과 동체 고정형 하향 카메라(Body-mounted Downward Camera)를 장착한 쿼드롭터(x500)를 이용하여 목표물을 탐색, 정렬, 그리고 파지하는 시스템을 구축한 개인 프로젝트입니다.
+본 프로젝트는 산업용 물류 창고 환경을 모사한 Gazebo 시뮬레이션 내에서, 로봇 팔(Manipulator)과 Body-mounted Downward Camera를 장착한 쿼드롭터(x500)를 이용하여 목표물을 탐색, 정렬, 그리고 파지하는 시스템을 구축한 개인 프로젝트입니다.
 
 단순 비행 제어를 넘어, 로봇 팔의 길이와 카메라 장착 위치에서 발생하는 기구학적 오프셋을 역산 캘리브레이션으로 극복하고, 개방 루프(Open-loop) 제어의 불확실성을 없애기 위해 비전과 촉각 데이터를 실시간 피드백으로 활용하는 고신뢰성 자율 파지 아키텍처를 설계했습니다.
 
@@ -47,7 +47,7 @@
 
 ## 4. 설치 및 의존성
 
-프로젝트 실행을 위한 미들웨어 및 패키지 설치는 각 공식 GitHub 레포지토리의 가이드를 참조하시기 바랍니다.
+프로젝트 실행을 위한 미들웨어 및 패키지 설치는 각 공식 GitHub 레포지토리의 가이드를 참조함.
 1. [PX4-Autopilot GitHub](https://github.com/PX4/PX4-Autopilot)
 2. [Micro-XRCE-DDS-Agent GitHub](https://github.com/eProsima/Micro-XRCE-DDS-Agent)
 3. [px4_msgs](https://github.com/PX4/px4_msgs) & [px4_ros_com](https://github.com/PX4/px4_ros_com) (ROS 2 워크스페이스 내 빌드 필요)
@@ -60,40 +60,48 @@
 
 * 모든 터미널 공통 실행
 
-`bash
-source /opt/ros/jazzy/setup.bash
-source ~/drone_ws/install/setup.bash
-export GZ_IP=127.0.0.1
-export GZ_PARTITION=default`
+`bash`
+
+`source /opt/ros/jazzy/setup.bash`
+
+`source ~/drone_ws/install/setup.bash`
+
+`export GZ_IP=127.0.0.1`
+
+`export GZ_PARTITION=default`
 
 * Terminal 1: 통신 에이전트 실행
 
-`bash
-cd ~/Micro-XRCE-DDS-Agent/build # Micro-XRCE-DDS-Agent 설치 폴더로 이동 후 실행
-./MicroXRCEAgent udp4 -p 8888`
+`bash`
+
+`cd ~/Micro-XRCE-DDS-Agent/build # Micro-XRCE-DDS-Agent 설치 폴더로 이동 후 실행`
+
+`./MicroXRCEAgent udp4 -p 8888`
 
 * Terminal 2: PX4 SITL 및 시뮬레이션 환경 실행
 
-`bash
-cd ~/PX4-Autopilot
-make px4_sitl gz_x500_depth`
+`bash`
+
+`cd ~/PX4-Autopilot`
+
+`make px4_sitl gz_x500_depth`
 
 * Terminal 3: ROS 2 - Gazebo 브릿지 실행
 
-`bash
-ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=config/bridge.yaml # YAML 파일을 사용하여 카메라 및 로봇팔 토픽을 일괄 매핑합니다(yaml 파일이 있는 곳에서 실행).`
+`bash`
+`ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=config/bridge.yaml # YAML 파일을 사용하여 카메라 및 로봇팔 토픽을 일괄 매핑합니다(yaml 파일이 있는 곳에서 실행).`
 
 * Terminal 4: 메인 자율 제어 노드 실행
 
-autonomous_control.py 실행
+`autonomous_control.py` 실행
 
 ---
 
 ## 6. Key Technologies & Control Logic
 
 ### 6.1 물리적 오차 보정 역산 캘리브레이션
-카메라 렌즈 표면과 드론 무게중심(Center of Mass) 간에는 로봇 팔 길이(0.41m)와 랜딩 기어(0.20m)로 인한 물리적 오프셋이 존재합니다. 
-* **해결 방안:** 가제보 물리 엔진의 절대 거리 데이터와 카메라가 인식하는 수학적 거리가 완벽히 일치할 때까지 비례식을 사용하여 **본 기체만의 맞춤형 초점거리(Fx, Fy = 1435.5)를 역산 도출**하여 시스템에 적용했습니다.
+카메라 렌즈 표면과 드론 무게중심 간에는 로봇 팔 길이(0.41m)와 랜딩 기어(0.20m)로 인한 물리적 오프셋이 존재합니다. 
+* **해결 방안:** 가제보 물리 엔진의 절대 거리 데이터와 카메라가 인식하는 수학적 거리가 완벽히 일치할 때까지 비례식을 사용하여 본 기체만의 맞춤형 초점거리(Fx, Fy = 1435.5)를 역산 도출하여 시스템에 적용했습니다.
 
 ### 6.2 시각적 서보잉 (Visual Servoing) 및 속도 제어
 하향 카메라를 이용해 ArUco 마커의 3D 좌표를 추정하고 픽셀 오차를 최소화합니다.
@@ -113,7 +121,7 @@ autonomous_control.py 실행
 
 ### 💡 기구학적 오차로 인한 Crash 문제 해결
 * **Issue:** 초기 하강 제어 시, 드론이 목표 상자를 파지하지 못하고 바닥에 충돌하며 전복되는 현상이 발생했습니다.
-* **Solution:** 코드상의 고도(`current_alt`)가 땅바닥 기준이 아닌 '랜딩 기어를 포함한 드론 몸체' 기준임을 파악했습니다. 로봇 팔 길이(0.41m)와 랜딩 기어(0.20m)를 동역학적으로 계산하여, **`목표 몸체 높이 = 0.48m`**라는 최적의 안전 파지 고도 수식을 도출해내어 충돌 문제를 완벽히 해결했습니다.
+* **Solution:** 코드상의 고도(`current_alt`)가 땅바닥 기준이 아닌 '랜딩 기어를 포함한 드론 몸체' 기준임을 파악했습니다. 로봇 팔 길이(0.41m)와 랜딩 기어(0.20m)를 동역학적으로 계산하여, `목표 몸체 높이 = 0.48m`라는 최적의 안전 파지 고도 수식을 도출해내어 충돌 문제를 해결했습니다.
 
 ---
 
@@ -128,6 +136,7 @@ autonomous_control.py 실행
 ---
 
 9. 참고 및 출처
+
 Warehouse Model: 원작자 Filipe Almeida (mov.ai)의 오픈소스 창고 모델을 기반으로 시뮬레이션 환경 구성.
 
 ArUco Marker Model: Jacob Dahl (ArkElectron)의 오픈소스 모델을 기반으로 드론 내비게이션용 커스텀 ID 모델 수정 및 확장 활용.
