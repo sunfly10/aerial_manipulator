@@ -1,0 +1,52 @@
+# 1. 로봇 팔 제어 토픽
+- ros_topic_name: "/arm_cmd/elbow"
+  gz_topic_name: "/model/x500_depth_0/joint/elbow_joint/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/arm_cmd/wrist"
+  gz_topic_name: "/model/x500_depth_0/joint/wrist_joint/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/arm_cmd/left_finger"
+  gz_topic_name: "/model/x500_depth_0/joint/left_finger_joint/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/arm_cmd/right_finger"
+  gz_topic_name: "/model/x500_depth_0/joint/right_finger_joint/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ
+
+# 2. 카메라 영상 토픽
+- ros_topic_name: "/bottom_camera/image_raw"
+  gz_topic_name: "/bottom_camera/image_raw"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/camera/image_raw"
+  gz_topic_name: "/world/default/model/x500_depth_0/link/camera_link/sensor/IMX214/image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+
+  # 3. 촉각 센서(Contact) 토픽
+
+- ros_topic_name: "/contact/left_finger"
+  gz_topic_name: "/contact/left_finger"
+  ros_type_name: "ros_gz_interfaces/msg/Contacts"
+  gz_type_name: "gz.msgs.Contacts"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/contact/right_finger"
+  gz_topic_name: "/contact/right_finger"
+  ros_type_name: "ros_gz_interfaces/msg/Contacts"
+  gz_type_name: "gz.msgs.Contacts"
+  direction: GZ_TO_ROS
