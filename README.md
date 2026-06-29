@@ -18,7 +18,7 @@
 
 | 파지 시 팔 위치 변환 모습 | 파지 액션 영상(미완) |
 | :---: | :---: |
-| <img width="236" height="326" alt="Screenshot from 2026-06-29 15-39-17" src="https://github.com/user-attachments/assets/25e65bdc-673f-400b-9584-23819877f88a" />| https://github.com/user-attachments/assets/4a562a9d-ef78-4601-bc71-7217a6b42b7e |
+| <img width="236" height="326" alt="Screenshot from 2026-06-29 15-39-17" src="https://github.com/user-attachments/assets/25e65bdc-673f-400b-9584-23819877f88a" />| <video src="https://github.com/user-attachments/assets/c7f372f8-337f-4523-bf88-8f6b1978d7fb" controls width="100%"></video> |
 
 ---
 
