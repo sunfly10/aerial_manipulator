@@ -13,7 +13,12 @@
 | ALIGHN BOX STATE | DESCENDING STATE |
 | :---: | :---: |
 | <img width="3825" height="1977" alt="Screenshot from 2026-06-29 15-35-08" src="https://github.com/user-attachments/assets/df61d667-6ed3-46f2-b818-9e7b82cb3dfa" /> | <img width="3825" height="1977" alt="Screenshot from 2026-06-29 15-35-57" src="https://github.com/user-attachments/assets/94149f65-ddc2-47bd-86ce-d42bc0207d63" /> |
-파지 알고리즘 구체화 진행중
+
+* 파지 제어 알고리즘 연구 진행중
+
+| 파지 시 팔 위치 변환 모습 | 파지 실패 모습 |
+| :---: | :---: |
+| <img width="236" height="326" alt="Screenshot from 2026-06-29 15-39-17" src="https://github.com/user-attachments/assets/25e65bdc-673f-400b-9584-23819877f88a" />| https://github.com/user-attachments/assets/4a562a9d-ef78-4601-bc71-7217a6b42b7e |
 
 ---
 
