@@ -30,7 +30,7 @@
 
 ### 🛠️ 개발 환경 및 기술 스택
 * **OS / Middleware:** Ubuntu 24.04 (Noble), ROS 2 (Jazzy), Micro-XRCE-DDS
-* **Simulation:** PX4 Autopilot (v1.14+), Gazebo Harmonic
+* **Simulation / GCS:** PX4 Autopilot (v1.14+), Gazebo Harmonic / QGC (QGroundControl)
 * **Language:** Python 3
 * **Core Tech:** OpenCV (`solvePnP`), Visual Servoing (EMA Filter), Kinematics Offset Calibration, FSM (Finite State Machine)
 
