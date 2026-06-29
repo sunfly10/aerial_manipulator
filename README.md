@@ -10,7 +10,9 @@
 | :---: | :---: |
 | <img width="3662" height="1988" alt="image" src="https://github.com/user-attachments/assets/97a6de0f-be00-4e46-87ff-49ca123f3ef1" /> | <img width="3662" height="1988" alt="Screenshot from 2026-06-29 15-27-49" src="https://github.com/user-attachments/assets/2753e443-70b3-4f4a-bcf7-f2d4a348b1b9" /> |
 
-
+| ALIGHN BOX STATE | DESCENDING STATE |
+| :---: | :---: |
+| <img width="3825" height="1977" alt="Screenshot from 2026-06-29 15-35-08" src="https://github.com/user-attachments/assets/df61d667-6ed3-46f2-b818-9e7b82cb3dfa" /> | <img width="3825" height="1977" alt="Screenshot from 2026-06-29 15-35-57" src="https://github.com/user-attachments/assets/94149f65-ddc2-47bd-86ce-d42bc0207d63" /> |
 파지 알고리즘 구체화 진행중
 
 ---
