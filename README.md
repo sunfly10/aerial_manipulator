@@ -54,17 +54,35 @@
 
 ---
 
-## 5. 실행 방법 (Execution)
+## 5. 실행 방법
 
 성공적인 실행을 위해 모든 터미널 창에서 공통적으로 아래의 환경 변수 및 소스 파일 적용이 선행되어야 합니다.
 
-'''bash
-# [모든 터미널 공통 실행]
+* 모든 터미널 공통 실행
+bash
 source /opt/ros/jazzy/setup.bash
-source ~/워크스페이스/install/setup.bash
+source ~/drone_ws/install/setup.bash
 export GZ_IP=127.0.0.1
 export GZ_PARTITION=default
 
+* Terminal 1: 통신 에이전트 실행
+bash
+cd ~/Micro-XRCE-DDS-Agent/build # Micro-XRCE-DDS-Agent 설치 폴더로 이동 후 실행
+./MicroXRCEAgent udp4 -p 8888
+
+* Terminal 2: PX4 SITL 및 시뮬레이션 환경 실행
+bash
+cd ~/PX4-Autopilot
+make px4_sitl gz_x500_depth
+
+* Terminal 3: ROS 2 - Gazebo 브릿지 실행
+bash
+ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=config/bridge.yaml # YAML 파일을 사용하여 카메라 및 로봇팔 토픽을 일괄 매핑합니다(yaml 파일이 있는 곳에서 실행).
+
+* Terminal 4: 메인 자율 제어 노드 실행
+autonomous_control.py 실행
+
+---
 
 ## 6. Key Technologies & Control Logic
 
@@ -102,3 +120,9 @@ export GZ_PARTITION=default
 * **Payload 추가에 따른 동역학 보상 제어:** 파지 후 상자의 무게(Payload)가 추가되면 드론의 무게 중심이 변하여 피치(Pitch) 흔들림이 발생합니다. 화물 적재 여부에 따라 PID 게인 값을 동적으로 조절하거나 무게를 선제적으로 보상하는 피드포워드(Feed-forward) 제어 로직 도입이 필요합니다.
 * **비전 노이즈 고도화:** 근접 하강 시 카메라 화각 제한으로 인해 발생하는 바운딩 박스 흔들림(Jittering)을 보정하기 위해 칼만 필터(Kalman Filter) 기반의 위치 추정 알고리즘을 도입할 예정입니다.
 
+---
+
+9. 참고 및 출처
+Warehouse Model: 원작자 Filipe Almeida (mov.ai)의 오픈소스 창고 모델을 기반으로 시뮬레이션 환경 구성.
+
+ArUco Marker Model: Jacob Dahl (ArkElectron)의 오픈소스 모델을 기반으로 드론 내비게이션용 커스텀 ID 모델 수정 및 확장 활용.
