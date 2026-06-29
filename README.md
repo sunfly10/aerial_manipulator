@@ -1,8 +1,13 @@
 # 🚁 Aerial Manipulator: 창고 환경 내 비전 기반 자율 파지 드론 시스템
 
 <img width="342" height="306" alt="Screenshot from 2026-06-29 15-12-56" src="https://github.com/user-attachments/assets/452a126a-6852-4815-bdc7-3017cff3d323" />
-![Grasping Demo](media/grasping_demo.gif)
-*(여기에 드론이 마커를 인식하고 하강하여 상자를 집어올리는 짧은 녹화 영상이나 GIF를 넣으세요)*
+![Uploading image.png…]()
+
+
+
+
+
+파지 알고리즘 구체화 진행중
 
 ---
 
