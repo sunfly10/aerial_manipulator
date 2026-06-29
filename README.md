@@ -1,10 +1,13 @@
 # 🚁 Aerial Manipulator: 창고 환경 내 비전 기반 자율 파지 드론 시스템
 
 <img width="342" height="306" alt="Screenshot from 2026-06-29 15-12-56" src="https://github.com/user-attachments/assets/452a126a-6852-4815-bdc7-3017cff3d323" />
-![Uploading image.png…]()
+| ARMING STATE | TAKE OFF STATE |
+| :---: | :---: |
+| <img width="3662" height="1988" alt="Screenshot from 2026-06-29 15-21-58" src="https://github.com/user-attachments/assets/75629baf-bcfb-442b-9c46-81c3831a1d37" /> | <img width="3662" height="1988" alt="image" src="https://github.com/user-attachments/assets/b52ff22b-bbb7-41dc-8ff5-e86d94f0857a" /> |
 
-
-
+| TRACKING STATE | WAITING STATE |
+| :---: | :---: |
+| <img width="3662" height="1988" alt="image" src="https://github.com/user-attachments/assets/97a6de0f-be00-4e46-87ff-49ca123f3ef1" /> | ![Uploading Screenshot from 2026-06-29 15-27-49.png…]() |
 
 
 파지 알고리즘 구체화 진행중
