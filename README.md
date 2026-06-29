@@ -1,8 +1,6 @@
 # 🚁 Aerial Manipulator: 창고 환경 내 비전 기반 자율 파지 드론 시스템
 
-![Aerial Manipulator Setup](media/eye_in_hand_setup.jpg)
-*(여기에 로봇팔과 카메라가 장착된 가제보 드론의 측면 캡처 사진을 넣으세요)*
-
+<img width="342" height="306" alt="Screenshot from 2026-06-29 15-12-56" src="https://github.com/user-attachments/assets/452a126a-6852-4815-bdc7-3017cff3d323" />
 ![Grasping Demo](media/grasping_demo.gif)
 *(여기에 드론이 마커를 인식하고 하강하여 상자를 집어올리는 짧은 녹화 영상이나 GIF를 넣으세요)*
 
